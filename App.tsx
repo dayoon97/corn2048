@@ -170,12 +170,12 @@ const App: FC = () => {
 
   const upGesture = Gesture.Fling()
     .direction(Directions.UP)
-    .onEnd(() => runOnJS(move)('UP'))
+    .onEnd(() => runOnJS(move)('DOWN'))
     .enabled(!isGameOver.value);
 
   const downGesture = Gesture.Fling()
     .direction(Directions.DOWN)
-    .onEnd(() => runOnJS(move)('DOWN'))
+    .onEnd(() => runOnJS(move)('UP'))
     .enabled(!isGameOver.value);
 
   const gesture = Gesture.Race(
