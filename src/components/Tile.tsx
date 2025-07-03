@@ -1,5 +1,5 @@
 // src/components/Tile.tsx
-import React, { FC, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -10,11 +10,7 @@ import Animated, {
 import { CELL_SIZE, CELL_MARGIN, TILE_STYLES } from '../constants';
 import type { TileData } from '../types';
 
-type TileProps = {
-  tile: TileData;
-};
-
-const Tile: FC<TileProps> = ({ tile }) => {
+const Tile = ({ tile }: { tile: TileData }) => {
   const x = useSharedValue(tile.x);
   const y = useSharedValue(tile.y);
   const scale = useSharedValue(tile.isNew ? 0 : 1);
@@ -25,7 +21,7 @@ const Tile: FC<TileProps> = ({ tile }) => {
     scale.value = tile.isNew
       ? withSpring(1, { damping: 15, stiffness: 100 })
       : 1;
-  }, [tile]);
+  }, [tile, x, y, scale]);
 
   const animatedStyle = useAnimatedStyle(() => {
     const tileStyle = TILE_STYLES[tile.value] || {

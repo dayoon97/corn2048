@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, FC } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   StyleSheet,
   Text,
@@ -61,11 +61,19 @@ const addRandomTile = (currentTiles: TileData[]): TileData[] => {
   return currentTiles;
 };
 
-const App: FC = () => {
+const App = () => {
   const tiles = useSharedValue<TileData[]>([]);
   const [renderTiles, setRenderTiles] = useState<TileData[]>([]);
   const [score, setScore] = useState<number>(0);
   const isGameOver = useSharedValue<boolean>(false);
+  const [isGameOverState, setIsGameOverState] = useState(false);
+
+  useAnimatedReaction(
+    () => isGameOver.value,
+    value => {
+      runOnJS(setIsGameOverState)(value);
+    },
+  );
 
   useAnimatedReaction(
     () => tiles.value,
@@ -81,7 +89,8 @@ const App: FC = () => {
     tiles.value = initialTiles;
     setScore(0);
     isGameOver.value = false;
-  }, []);
+    setIsGameOverState(false); // 이 줄 추가!
+  }, [isGameOver, tiles]);
 
   useEffect(() => {
     initGame();
@@ -103,8 +112,16 @@ const App: FC = () => {
           { text: 'New Game', onPress: initGame },
         ]);
       }
+      const has2048Tile = currentTiles.some(tile => tile.value === 2048);
+      if (has2048Tile) {
+        isGameOver.value = true;
+        Alert.alert('🎉 You Win!', `You made 2048!\nScore: ${score}`, [
+          { text: 'Play Again', onPress: initGame },
+        ]);
+        return; // 2048 도달 시 더 이상 진행 안 함
+      }
     },
-    [score, initGame],
+    [isGameOver, score, initGame],
   );
 
   const move = useCallback(
@@ -161,22 +178,22 @@ const App: FC = () => {
   const leftGesture = Gesture.Fling()
     .direction(Directions.LEFT)
     .onEnd(() => runOnJS(move)('LEFT'))
-    .enabled(!isGameOver.value);
+    .enabled(!isGameOverState); // ← 수정됨
 
   const rightGesture = Gesture.Fling()
     .direction(Directions.RIGHT)
     .onEnd(() => runOnJS(move)('RIGHT'))
-    .enabled(!isGameOver.value);
+    .enabled(!isGameOverState);
 
   const upGesture = Gesture.Fling()
     .direction(Directions.UP)
     .onEnd(() => runOnJS(move)('DOWN'))
-    .enabled(!isGameOver.value);
+    .enabled(!isGameOverState);
 
   const downGesture = Gesture.Fling()
     .direction(Directions.DOWN)
     .onEnd(() => runOnJS(move)('UP'))
-    .enabled(!isGameOver.value);
+    .enabled(!isGameOverState);
 
   const gesture = Gesture.Race(
     leftGesture,
@@ -190,7 +207,7 @@ const App: FC = () => {
       <View style={styles.header}>
         <Text style={styles.title}>Veggie 2048</Text>
         <View style={styles.scoreContainer}>
-          <Text style={styles.scoreTitle}>🌼 점수</Text>
+          <Text style={styles.scoreTitle}>🌽 점수</Text>
           <Text style={styles.score}>{score}</Text>
         </View>
       </View>
@@ -228,61 +245,6 @@ const App: FC = () => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#faf8ef',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   header: {
-//     width: BOARD_DIMENSION,
-//     flexDirection: 'row',
-//     justifyContent: 'space-between',
-//     alignItems: 'center',
-//     marginBottom: 20,
-//   },
-//   title: { fontSize: 32, fontWeight: 'bold', color: '#776e65' },
-//   scoreContainer: {
-//     backgroundColor: '#bbada0',
-//     paddingHorizontal: 15,
-//     paddingVertical: 5,
-//     borderRadius: 5,
-//   },
-//   scoreTitle: { fontSize: 12, color: '#eee4da', textAlign: 'center' },
-//   score: {
-//     fontSize: 20,
-//     fontWeight: 'bold',
-//     color: 'white',
-//     textAlign: 'center',
-//   },
-//   board: {
-//     width: BOARD_DIMENSION,
-//     height: BOARD_DIMENSION,
-//     backgroundColor: '#bbada0',
-//     borderRadius: 6,
-//     shadowColor: '#000',
-//     shadowOffset: { width: 0, height: 2 },
-//     shadowOpacity: 0.25,
-//     shadowRadius: 3.84,
-//     elevation: 5,
-//   },
-//   cell: {
-//     position: 'absolute',
-//     width: CELL_SIZE,
-//     height: CELL_SIZE,
-//     backgroundColor: 'rgba(238, 228, 218, 0.35)',
-//     borderRadius: 3,
-//   },
-//   resetButton: {
-//     marginTop: 30,
-//     backgroundColor: '#8f7a66',
-//     paddingHorizontal: 20,
-//     paddingVertical: 15,
-//     borderRadius: 5,
-//   },
-//   resetButtonText: { color: 'white', fontSize: 18, fontWeight: 'bold' },
-// });
 const styles = StyleSheet.create({
   container: {
     flex: 1,
