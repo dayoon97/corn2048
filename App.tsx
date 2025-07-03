@@ -112,7 +112,7 @@ const App = () => {
           { text: 'New Game', onPress: initGame },
         ]);
       }
-      const has2048Tile = currentTiles.some(tile => tile.value === 2048);
+      const has2048Tile = currentTiles.some(tile => tile.value === 32768);
       if (has2048Tile) {
         isGameOver.value = true;
         Alert.alert('🎉 You Win!', `You made 2048!\nScore: ${score}`, [
