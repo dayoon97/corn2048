@@ -105,7 +105,6 @@ const App = () => {
 
       const canMove = checkIfGameCanMove(board);
       const emptyCellsCount = board.flat().filter(cell => cell === 0).length;
-
       if (!canMove && emptyCellsCount === 0) {
         isGameOver.value = true;
         Alert.alert('Game Over!', `Your score: ${score}\nTry again?`, [
@@ -118,7 +117,7 @@ const App = () => {
         Alert.alert('🎉 You Win!', `You made 2048!\nScore: ${score}`, [
           { text: 'Play Again', onPress: initGame },
         ]);
-        return; // 2048 도달 시 더 이상 진행 안 함
+        return;
       }
     },
     [isGameOver, score, initGame],
@@ -178,7 +177,7 @@ const App = () => {
   const leftGesture = Gesture.Fling()
     .direction(Directions.LEFT)
     .onEnd(() => runOnJS(move)('LEFT'))
-    .enabled(!isGameOverState); // ← 수정됨
+    .enabled(!isGameOverState);
 
   const rightGesture = Gesture.Fling()
     .direction(Directions.RIGHT)
