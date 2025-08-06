@@ -1,97 +1,40 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# README.md
 
-# Getting Started
+## 프로젝트 개요
+`Veggie2048`은 클래식한 숫자 퍼즐 게임인 2048에 귀여운 채소 캐릭터와 산뜻한 UI 디자인을 더해 새롭게 제작된 모바일 게임입니다. 플레이어는 같은 종류의 채소들을 합쳐 더 큰 숫자의 타일(더 큰 채소)을 만들고, 최종 목표인 '2048' 타일을 완성하는 것을 목표로 합니다. 직관적인 조작과 중독성 있는 게임 플레이를 통해 남녀노소 누구나 즐길 수 있습니다.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 게임 특징
+* **귀여운 채소 캐릭터:** 양파, 당근, 감자 등 아기자기한 채소들이 게임 타일로 등장합니다.
+* **깔끔한 UI/UX:** 눈이 편안한 색감과 부드러운 애니메이션으로 몰입감을 높였습니다.
+* **쉬운 조작법:** 상하좌우 스와이프만으로 모든 게임 플레이가 가능합니다.
+* **오프라인 플레이:** 인터넷 연결 없이 언제 어디서든 즐길 수 있습니다.
+* **자동 저장 기능:** 게임을 중간에 종료해도 마지막 상태가 자동 저장되어 이어서 플레이할 수 있습니다.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 개인정보 보호 방침 (Privacy Policy)
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## Veggie2048 개인정보 보호 방침
+`Veggie2048` 앱은 사용자 여러분의 개인정보를 중요하게 생각하며, 관련 법규를 준수하고 있습니다. 본 개인정보 보호 방침은 앱이 어떠한 정보를 수집하고, 이용하며, 보호하는지 설명합니다.
 
-```sh
-# Using npm
-npm start
+### 1. 수집하는 정보
+`Veggie2048` 앱은 어떠한 개인 식별 정보(이름, 이메일 주소, 전화번호 등)도 수집하지 않습니다.
+앱은 게임 플레이 기록, 최고 점수 등 비개인적인 정보를 저장하여 게임 진행 상태를 유지합니다. 이 정보는 기기 내부에만 저장되며, 외부 서버로 전송되거나 공유되지 않습니다.
 
-# OR using Yarn
-yarn start
-```
+### 2. 정보 이용 목적
+앱은 수집한 정보를 다음의 목적으로만 이용합니다.
+* 사용자의 게임 플레이 기록을 유지하고, 게임을 이어서 진행할 수 있도록 하기 위함
+* 게임의 최고 점수를 기록하여 사용자의 성취도를 제공하기 위함
 
-## Step 2: Build and run your app
+### 3. 정보 공유 및 제공
+`Veggie2048` 앱은 사용자 정보를 제3자와 공유하거나 제공하지 않습니다. 모든 정보는 사용자의 기기에만 저장됩니다.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### 5. 광고
+본 앱은 (예: AdMob)을 통해 광고를 표시할 수 있습니다. 광고 네트워크는 익명의 기기 식별자를 사용하여 맞춤형 광고를 제공할 수 있지만, 개인 식별 정보는 수집하지 않습니다.
 
-### Android
+### 6. 문의사항
+개인정보 보호 방침에 대한 문의사항이 있으시면, [dayoon.sim@gmail.com](mailto:dayoon.sim@gmail.com)로 연락주시기 바랍니다.
 
-```sh
-# Using npm
-npm run android
+본 방침은 앱 서비스의 변경이나 법률 개정에 따라 변경될 수 있으며, 변경 시 이 주소를 통해 알려드릴 것입니다.
 
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+**최종 수정일: 2025.08.06**
