@@ -204,7 +204,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Veggie 2048</Text>
+        <Text style={styles.title}>Veggie2048</Text>
         <View style={styles.scoreContainer}>
           <Text style={styles.scoreTitle}>🌽 점수</Text>
           <Text style={styles.score}>{score}</Text>

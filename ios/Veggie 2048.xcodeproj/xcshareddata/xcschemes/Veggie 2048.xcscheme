@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "corn2048.app"
-               BlueprintName = "corn2048"
-               ReferencedContainer = "container:corn2048.xcodeproj">
+               BuildableName = "Veggie2048.app"
+               BlueprintName = "Veggie2048"
+               ReferencedContainer = "container:Veggie2048.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "corn2048Tests.xctest"
-               BlueprintName = "corn2048Tests"
-               ReferencedContainer = "container:corn2048.xcodeproj">
+               BuildableName = "Veggie2048Tests.xctest"
+               BlueprintName = "Veggie2048Tests"
+               ReferencedContainer = "container:Veggie2048.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "corn2048.app"
-            BlueprintName = "corn2048"
-            ReferencedContainer = "container:corn2048.xcodeproj">
+            BuildableName = "Veggie2048.app"
+            BlueprintName = "Veggie2048"
+            ReferencedContainer = "container:Veggie2048.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "corn2048.app"
-            BlueprintName = "corn2048"
-            ReferencedContainer = "container:corn2048.xcodeproj">
+            BuildableName = "Veggie2048.app"
+            BlueprintName = "Veggie2048"
+            ReferencedContainer = "container:Veggie2048.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

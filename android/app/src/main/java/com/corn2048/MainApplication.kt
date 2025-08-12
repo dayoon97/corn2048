@@ -1,4 +1,4 @@
-package com.corn2048
+package com.Veggie2048
 
 import android.app.Application
 import com.facebook.react.PackageList

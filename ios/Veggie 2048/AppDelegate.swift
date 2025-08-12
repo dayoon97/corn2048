@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
 
     factory.startReactNative(
-      withModuleName: "corn2048",
+      withModuleName: "Veggie2048",
       in: window,
       launchOptions: launchOptions
     )
